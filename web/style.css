@@ -8,21 +8,28 @@
 /* Body Styling */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #e0f7fa;
+  background-color: #44a7b4; /* Original background */
   color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-image: linear-gradient(135deg, #6096aa, #1f71a7); /* Colorful background */
-  background-size: cover;
+  padding-top: 30px; /* Added space at the top */
+  flex-direction: column;
 }
 
 /* Header Styling */
 header {
   text-align: center;
   margin-bottom: 40px;
+  position: absolute;
+  top: 40px; /* Slightly adjusted to position below the top */
+  left: 50%;
+  transform: translateX(-50%);
+  animation: fadeIn 1.5s ease-in-out; /* Header fade-in effect */
+  width: 100%; /* Ensures title stays within bounds */
+  white-space: nowrap; /* Prevents title from wrapping to a new line */
 }
 
 h1 {
@@ -31,22 +38,37 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 3px;
   margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 /* Chat Container Styling */
 #chat-container {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.9); /* Light background for the container */
   width: 480px;
   max-width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 25px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 550px;
   overflow: hidden;
+  animation: slideUp 0.8s ease-out; /* Smooth slide-in animation */
+  margin-top: 40px; /* Added space above the chat container */
+}
+
+/* Slide-up Animation */
+@keyframes slideUp {
+  0% { transform: translateY(100%); }
+  100% { transform: translateY(0); }
 }
 
 /* Conversation Styling */
@@ -58,6 +80,13 @@ h1 {
   font-size: 1.2rem;
   line-height: 1.7;
   color: #333;
+  animation: fadeInMessages 1s ease-out; /* Smooth fade-in for messages */
+}
+
+/* Fade-in for Messages */
+@keyframes fadeInMessages {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 /* Bot and User Message Styling with Attractive Boxes */
@@ -73,25 +102,25 @@ h1 {
 }
 
 .user-msg {
-  background-color: #07bae2; /* Vibrant pinkish color */
+  background-color: #00bcd4; /* Original color */
   align-self: flex-end;
   color: white;
   transform: scale(1); /* Default scale */
 }
 
 .user-msg:hover {
-  transform: scale(1.05); /* Slight zoom effect when hovering */
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
 .bot-msg {
-  background-color: #80deea; /* Light blue */
+  background-color: #64b5f6; /* Original color */
   align-self: flex-start;
   color: white;
   transform: scale(1); /* Default scale */
 }
 
 .bot-msg:hover {
-  transform: scale(1.05); /* Slight zoom effect when hovering */
+  transform: scale(1.05); /* Slight zoom effect */
 }
 
 /* Typing Indicator Styling */
@@ -130,6 +159,8 @@ h1 {
   display: flex;
   align-items: center;
   gap: 12px;
+  padding-top: 15px;
+  transition: all 0.3s ease;
 }
 
 /* User Input Styling */
@@ -137,22 +168,21 @@ h1 {
   width: 100%;
   padding: 12px 20px;
   font-size: 1.1rem;
-  border: 1px solid #1eb1c1;
-  border-radius: 30px;
+  border: 2px solid #00bcd4; /* Original color */
+  border-radius: 25px;
   outline: none;
-  transition: border-color 0.3s ease;
-  background-color: #f1f8e9; /* Light green background */
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+  background-color: #f1f8e9;
 }
 
 #user-input:focus {
-  border-color: #2facb0; /* Orange color when focused */
+  border-color: #0288d1; /* Focused blue border */
   background-color: #fff;
 }
 
 /* Send Button Styling */
-/* Send Button Styling */
 #send-button {
-  background-color: #21a2c6; /* Bright blue */
+  background-color: #00bcd4; /* Original color */
   color: white;
   border: none;
   width: 50px;
@@ -164,17 +194,16 @@ h1 {
   justify-content: center;
   font-size: 1.5rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow effect */
 }
 
 #send-button:hover {
-  background-color: #1d7cab; /* Slightly darker blue on hover */
+  background-color: #0288d1; /* Darker cyan on hover */
   transform: scale(1.1); /* Zoom effect */
 }
 
 #send-button:active {
   transform: scale(1); /* Reset zoom on click */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
 }
 
 #send-button:focus {
@@ -183,27 +212,26 @@ h1 {
 
 /* Send Icon Styling */
 #send-button i {
-  font-size: 1.4rem; /* Icon size */
+  font-size: 1.4rem;
   transition: transform 0.2s ease;
 }
 
 #send-button:hover i {
-  transform: rotate(-10deg); /* Slight rotation on hover for a playful effect */
+  transform: rotate(15deg); /* Rotate the icon */
 }
 
-/* Style for the mic button */
-#mic-button i {
-  font-size: 2rem; /* Adjust this value to make the icon bigger or smaller */
-  color: #007bff; /* Optional: You can change the color if you want */
-}
-
-/* Optional: Style for the mic button itself */
+/* Mic Button Styling (No Border or Outline) */
 #mic-button {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  border: none; /* Removes any border */
+  outline: none; /* Removes outline when focused */
+}
+
+#mic-button i {
+  font-size: 2rem; /* Mic button size */
+  color: #0288d1; /* Original color */
+  transition: transform 0.2s ease;
+}
+
+#mic-button:hover i {
+  transform: scale(1.2); /* Zoom on hover */
 }
