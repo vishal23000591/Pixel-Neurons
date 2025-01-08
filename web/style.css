@@ -1,0 +1,209 @@
+/* Reset default margins and padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #e0f7fa;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: linear-gradient(135deg, #6096aa, #1f71a7); /* Colorful background */
+  background-size: cover;
+}
+
+/* Header Styling */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Chat Container Styling */
+#chat-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 480px;
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 550px;
+  overflow: hidden;
+}
+
+/* Conversation Styling */
+.conversation {
+  overflow-y: auto;
+  flex-grow: 1;
+  margin-bottom: 20px;
+  padding-right: 15px;
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: #333;
+}
+
+/* Bot and User Message Styling with Attractive Boxes */
+.conversation .user-msg,
+.conversation .bot-msg {
+  margin-bottom: 12px;
+  max-width: 85%;
+  padding: 15px 20px;
+  border-radius: 25px;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+  transition: transform 0.3s ease;
+}
+
+.user-msg {
+  background-color: #07bae2; /* Vibrant pinkish color */
+  align-self: flex-end;
+  color: white;
+  transform: scale(1); /* Default scale */
+}
+
+.user-msg:hover {
+  transform: scale(1.05); /* Slight zoom effect when hovering */
+}
+
+.bot-msg {
+  background-color: #80deea; /* Light blue */
+  align-self: flex-start;
+  color: white;
+  transform: scale(1); /* Default scale */
+}
+
+.bot-msg:hover {
+  transform: scale(1.05); /* Slight zoom effect when hovering */
+}
+
+/* Typing Indicator Styling */
+.typing-indicator {
+  display: none;
+  font-size: 1.3rem;
+  color: #888;
+}
+
+.typing-indicator span {
+  animation: typing 0.8s infinite steps(1, end);
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Input Container Styling */
+#input-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* User Input Styling */
+#user-input {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  border: 1px solid #1eb1c1;
+  border-radius: 30px;
+  outline: none;
+  transition: border-color 0.3s ease;
+  background-color: #f1f8e9; /* Light green background */
+}
+
+#user-input:focus {
+  border-color: #2facb0; /* Orange color when focused */
+  background-color: #fff;
+}
+
+/* Send Button Styling */
+/* Send Button Styling */
+#send-button {
+  background-color: #21a2c6; /* Bright blue */
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+#send-button:hover {
+  background-color: #1d7cab; /* Slightly darker blue on hover */
+  transform: scale(1.1); /* Zoom effect */
+}
+
+#send-button:active {
+  transform: scale(1); /* Reset zoom on click */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Reduced shadow on click */
+}
+
+#send-button:focus {
+  outline: none;
+}
+
+/* Send Icon Styling */
+#send-button i {
+  font-size: 1.4rem; /* Icon size */
+  transition: transform 0.2s ease;
+}
+
+#send-button:hover i {
+  transform: rotate(-10deg); /* Slight rotation on hover for a playful effect */
+}
+
+/* Style for the mic button */
+#mic-button i {
+  font-size: 2rem; /* Adjust this value to make the icon bigger or smaller */
+  color: #007bff; /* Optional: You can change the color if you want */
+}
+
+/* Optional: Style for the mic button itself */
+#mic-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
